@@ -1,0 +1,35 @@
+﻿@model Whatsup_Her.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@Html.ValidationSummary()
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(m => m.MobileNumber)
+            <br />
+            @Html.TextBoxFor(m => m.MobileNumber, new { autocomplete = "off" })
+            @Html.ValidationMessageFor(m => m.MobileNumber)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            <br />
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Login" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<div class="btn btn-default">
+    @Html.ActionLink("Register", "Register", "Account")
+</div>

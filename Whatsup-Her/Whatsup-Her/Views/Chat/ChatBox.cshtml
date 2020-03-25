@@ -1,0 +1,17 @@
+﻿@model Whatsup_Her.Models.Message
+
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    @Html.TextBoxFor(m => m.Text, new { autocomplete = "off"})
+
+    <input type="submit" value="Send Message" onclick="refresh" />
+}
+
+@Html.Action("Messages", "Chat")
+
+<script>
+    function refresh() {
+        window.location.reload();
+    }
+</script>

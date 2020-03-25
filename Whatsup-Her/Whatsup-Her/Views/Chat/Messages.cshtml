@@ -1,0 +1,12 @@
+﻿@using Whatsup_Her.Models;
+@model List<MessageView>
+
+<h2>Messages</h2>
+
+@foreach (MessageView message in Model)
+{
+    <p>
+        <u>@message.ContactName</u>      @message.TimeSent<br />
+        @message.Message
+    </p>
+}

@@ -1,0 +1,26 @@
+﻿@model List<Whatsup_Her.Models.MessageView>
+@using Whatsup_Her.Models;
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Chats</h2>
+
+<table class="table">
+    <tr>
+        <th>Contact</th>
+        <th>Last Message</th>
+        <th>Time</th>
+        <th></th>
+    </tr>
+    @foreach (MessageView message in Model)
+    {
+    <tr>
+        <td>@message.ContactName</td>
+        <td>@message.Message</td>
+        <td>@message.TimeSent</td>
+        <td>@Html.ActionLink("Send message", "message", new { otheraccountid = message.OtherAccount })</td>
+    </tr>
+    }
+
+</table>
